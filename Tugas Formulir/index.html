@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Global Styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        /* Styling Form */
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            display: block;
+            font-weight: 500;
+            color: #333;
+        }
+
+        input[type="text"], input[type="password"], select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+
+        input:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 8px rgba(106, 17, 203, 0.3);
+            outline: none;
+        }
+
+        /* Styling Input Radio & Checkbox */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .input-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Tombol */
+        input[type="submit"], input[type="reset"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        input[type="submit"] {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            color: #fff;
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(45deg, #5d0fbf, #1a5ed0);
+            transform: scale(1.05);
+        }
+
+        input[type="reset"] {
+            background: linear-gradient(45deg, #ff4b2b, #ff416c);
+            color: white;
+            margin-top: 10px;
+        }
+
+        input[type="reset"]:hover {
+            background: linear-gradient(45deg, #e84118, #e74c3c);
+            transform: scale(1.05);
+        }
+
+        /* Popup Styling */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup-content button {
+            background-color: #6a11cb;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .popup-content button:hover {
+            background-color: #5d0fbf;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Formulir Pendaftaran</h1>
+
+        <form id="form">
+            <div class="form-group">
+                <label for="nama">Nama</label>
+                <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+            </div>
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Masukkan username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="jk">Jenis Kelamin</label>
+                <select id="jk" name="jk" required>
+                    <option value="">-- Pilih --</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Jurusan</label>
+                <div class="input-group">
+                    <label><input type="radio" name="jurusan" value="TIF" required> Teknik Informatika</label>
+                    <label><input type="radio" name="jurusan" value="DKV"> Desain Komunikasi Visual</label>
+                    <label><input type="radio" name="jurusan" value="TI" checked> Teknik Industri</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Kelas</label>
+                <div class="input-group">
+                    <label><input type="checkbox" name="kelas" value="Reguler Pagi"> Reguler Pagi</label>
+                    <label><input type="checkbox" name="kelas" value="Reguler Malam"> Reguler Malam</label>
+                    <label><input type="checkbox" name="kelas" value="Karyawan"> Karyawan</label>
+                </div>
+            </div>
+
+            <input type="submit" value="SUBMIT">
+            <input type="reset" value="BATAL">
+        </form>
+    </div>
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h2>Hasil Pengisian Form</h2>
+            <p><strong>Nama:</strong> <span id="resultNama"></span></p>
+            <p><strong>Username:</strong> <span id="resultUsername"></span></p>
+            <p><strong>Jenis Kelamin:</strong> <span id="resultJk"></span></p>
+            <p><strong>Jurusan:</strong> <span id="resultJurusan"></span></p>
+            <p><strong>Kelas:</strong> <span id="resultKelas"></span></p>
+            <button onclick="closePopup()">Tutup</button>
+        </div>
+    </div>
+
+    <script>
+        const popup = document.getElementById('popup');
+
+        function showPopup(data) {
+            document.getElementById('resultNama').textContent = data.nama;
+            document.getElementById('resultUsername').textContent = data.username;
+            document.getElementById('resultJk').textContent = data.jk;
+            document.getElementById('resultJurusan').textContent = data.jurusan;
+            document.getElementById('resultKelas').textContent = data.kelas.join(', ');
+
+            popup.style.display = 'flex';
+        }
+
+        function closePopup() {
+            popup.style.display = 'none';
+        }
+
+        document.getElementById('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const data = {
+                nama: document.getElementById('nama').value,
+                username: document.getElementById('username').value,
+                jk: document.getElementById('jk').value,
+                jurusan: document.querySelector('input[name="jurusan"]:checked').value,
+                kelas: Array.from(document.querySelectorAll('input[name="kelas"]:checked')).map(el => el.value)
+            };
+
+            showPopup(data);
+        });
+    </script>
+</body>
+</html>
